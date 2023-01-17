@@ -1,3 +1,3 @@
 #Lab 2
 
-Hello
+Hello World, this is Lab 2.
