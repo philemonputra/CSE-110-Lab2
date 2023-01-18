@@ -2,6 +2,8 @@ package edu.ucsd.cse110.lab2;
 
 import static org.junit.Assert.assertEquals;
 
+import android.widget.TextView;
+
 import androidx.lifecycle.Lifecycle;
 import androidx.test.core.app.ActivityScenario;
 
@@ -18,6 +20,8 @@ public class BetterMainActivityTest {
         scenario.moveToState(Lifecycle.State.CREATED);
         scenario.moveToState(Lifecycle.State.STARTED);
 
+
+
         scenario.onActivity(activity -> {
             assertEquals(activity.findViewById(R.id.btn_one).performClick(), true);
         });
@@ -31,7 +35,8 @@ public class BetterMainActivityTest {
             assertEquals(activity.findViewById(R.id.btn_equals).performClick(), true);
         });
         scenario.onActivity(activity -> {
-            assertEquals(activity.findViewById(R.id.display).isShown(), 2);
+            TextView display = (TextView) activity.findViewById(R.id.display);
+            assertEquals(display.getText(), "2");
         });
 
     }
